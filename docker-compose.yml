@@ -1,28 +1,33 @@
 version: '3.8'
+
 services:
   app:
     build: .
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://user:pass@db:5432/dbname
+      - DATABASE_URL=postgresql://user:password@db:5432/dbname
+      - REDIS_URL=redis://redis:6379
     depends_on:
       - db
       - redis
-  
+    volumes:
+      - ./app:/app/app
+    restart: unless-stopped
+
   db:
-    image: postgres:15
+    image: postgres:15-alpine
     environment:
       - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=pass
+      - POSTGRES_PASSWORD=password
       - POSTGRES_DB=dbname
     volumes:
       - postgres_data:/var/lib/postgresql/data
-  
+    restart: unless-stopped
+
   redis:
     image: redis:7-alpine
-    ports:
-      - "6379:6379"
+    restart: unless-stopped
 
 volumes:
   postgres_data:
