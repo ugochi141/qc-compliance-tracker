@@ -1,0 +1,48 @@
+{
+  "violations": [
+    {
+      "timestamp": "2024-01-15T14:00:00",
+      "instrument": "Roche_Cobas_8000",
+      "analyte": "Sodium",
+      "rule": "1-2s",
+      "level": "Level2",
+      "value": 152,
+      "mean": 150,
+      "sd": 2,
+      "action": "Warning issued",
+      "operator": "Tech_E"
+    },
+    {
+      "timestamp": "2024-01-15T14:05:00",
+      "instrument": "Roche_Cobas_8000",
+      "analyte": "Potassium",
+      "rule": "1-2s",
+      "level": "Level2",
+      "value": 6.2,
+      "mean": 6.0,
+      "sd": 0.2,
+      "action": "Warning issued",
+      "operator": "Tech_E"
+    },
+    {
+      "timestamp": "2024-01-14T10:30:00",
+      "instrument": "Sysmex_XN9000",
+      "analyte": "Platelet",
+      "rule": "2-2s",
+      "level": "Level1",
+      "values": [145, 143],
+      "mean": 150,
+      "sd": 5,
+      "action": "Instrument recalibrated",
+      "operator": "Tech_C"
+    }
+  ],
+  "monthly_summary": {
+    "total_qc_runs": 1856,
+    "total_violations": 23,
+    "violation_rate": 1.24,
+    "most_common_violation": "1-2s",
+    "problematic_instruments": ["Roche_Cobas_8000"],
+    "corrective_actions": 18
+  }
+}
